@@ -4,6 +4,7 @@
 - Auto clean project.pbxproj file.
 - Backup unused image before removing.
 - Custom extension of files which need to be retrieved.
+
 - 过滤并删除iOS项目中没有使用的图片.
 - 自动清理project.pbxproj文件.
 - 备份没有使用的图片.
