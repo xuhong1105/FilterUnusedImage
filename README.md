@@ -2,7 +2,7 @@
 - Filter unused image from your iOS project.
 - 过滤iOS项目中没有使用的图片
 
-* [Examples 【示例】](#Examples)
+## Examples【示例】
 ```objc
 NSString * projectPath = @"write your project path here";
 AXUnusedImageFilter * filter = [[AXUnusedImageFilter alloc] initWithPath:projectPath];
