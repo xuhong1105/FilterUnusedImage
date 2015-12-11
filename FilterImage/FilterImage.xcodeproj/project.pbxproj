@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F007FB01C17F91C00BB0503 /* AXImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F007FAF1C17F91C00BB0503 /* AXImage.m */; };
-		9F007FB31C18039100BB0503 /* AXFilterImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F007FB21C18039100BB0503 /* AXFilterImage.m */; };
+		9F007FB31C18039100BB0503 /* AXUnusedImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F007FB21C18039100BB0503 /* AXUnusedImageFilter.m */; };
 		9F617CAA1C16C6C500905FF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F617CA91C16C6C500905FF4 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +27,8 @@
 /* Begin PBXFileReference section */
 		9F007FAE1C17F91C00BB0503 /* AXImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXImage.h; sourceTree = "<group>"; };
 		9F007FAF1C17F91C00BB0503 /* AXImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXImage.m; sourceTree = "<group>"; };
-		9F007FB11C18039100BB0503 /* AXFilterImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXFilterImage.h; sourceTree = "<group>"; };
-		9F007FB21C18039100BB0503 /* AXFilterImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXFilterImage.m; sourceTree = "<group>"; };
+		9F007FB11C18039100BB0503 /* AXUnusedImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXUnusedImageFilter.h; sourceTree = "<group>"; };
+		9F007FB21C18039100BB0503 /* AXUnusedImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXUnusedImageFilter.m; sourceTree = "<group>"; };
 		9F617CA61C16C6C500905FF4 /* FilterImage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FilterImage; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F617CA91C16C6C500905FF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,8 +66,8 @@
 				9F617CA91C16C6C500905FF4 /* main.m */,
 				9F007FAE1C17F91C00BB0503 /* AXImage.h */,
 				9F007FAF1C17F91C00BB0503 /* AXImage.m */,
-				9F007FB11C18039100BB0503 /* AXFilterImage.h */,
-				9F007FB21C18039100BB0503 /* AXFilterImage.m */,
+				9F007FB11C18039100BB0503 /* AXUnusedImageFilter.h */,
+				9F007FB21C18039100BB0503 /* AXUnusedImageFilter.m */,
 			);
 			path = FilterImage;
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F007FB01C17F91C00BB0503 /* AXImage.m in Sources */,
-				9F007FB31C18039100BB0503 /* AXFilterImage.m in Sources */,
+				9F007FB31C18039100BB0503 /* AXUnusedImageFilter.m in Sources */,
 				9F617CAA1C16C6C500905FF4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

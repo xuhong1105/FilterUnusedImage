@@ -5,9 +5,9 @@
 * [Examples 【示例】](#Examples)
 ```objc
 NSString * projectPath = @"write your project path here";
-AXFilterImage * filter = [[AXFilterImage alloc] initWithPath:projectPath];
+AXUnusedImageFilter * filter = [[AXUnusedImageFilter alloc] initWithPath:projectPath];
 filter.removeUnusedImage = YES;
 filter.cleanPbxproj = YES;
-filter.saveUnusedImage = YES;
+filter.backupUnusedImage = YES;
 [filter start];
 ```

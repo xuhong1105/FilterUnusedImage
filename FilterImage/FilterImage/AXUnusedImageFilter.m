@@ -1,12 +1,12 @@
 //
-//  AXFilterImage.m
+//  AXUnusedImageFilter.m
 //  FilterImage
 //
 //  Created by Allen on 15/12/9.
 //  Copyright © 2015年 Allen. All rights reserved.
 //
 
-#import "AXFilterImage.h"
+#import "AXUnusedImageFilter.h"
 #import <mach/mach_time.h>
 #import "AXImage.h"
 
@@ -17,7 +17,7 @@ double MachTimeToSecs(uint64_t time)
     return (double)time * (double)timebase.numer / (double)timebase.denom / 1e9;
 }
 
-@interface AXFilterImage ()
+@interface AXUnusedImageFilter ()
 @property (nonatomic,copy  ) NSString       *rootDirectoryPath;
 @property (nonatomic,strong) NSFileManager  *manager;
 @property (nonatomic,strong) NSArray        *subPaths;
@@ -26,7 +26,7 @@ double MachTimeToSecs(uint64_t time)
 @property (nonatomic,copy  ) NSString       *mFilePath;
 @end
 
-@implementation AXFilterImage
+@implementation AXUnusedImageFilter
 
 - (instancetype)initWithPath:(NSString *)path
 {
@@ -34,7 +34,7 @@ double MachTimeToSecs(uint64_t time)
     if (self) {
         _removeUnusedImage = NO;
         _cleanPbxproj = NO;
-        _saveUnusedImage = NO;
+        _backupUnusedImage = NO;
         _path = path;
         _rootDirectoryPath = path;
         _fileExtensions = @[@"m", @"xib", @"cpp", @"storyboard", @"mm", @"swift", @"plist", @"json"];
@@ -49,17 +49,17 @@ double MachTimeToSecs(uint64_t time)
 {
     uint64_t begin = mach_absolute_time();
     
-    // check if the directory exist. 检查目录是否存在
+    // check if the directory exists. 检查目录是否存在
     if(![self.manager fileExistsAtPath:self.rootDirectoryPath]) {
         NSLog(@"The Directory does not exist");
         return;
     }
     self.subPaths = [self.manager subpathsAtPath:self.rootDirectoryPath];
 
-    // pick out all .png and .jpg image.选出所有的 .png 或者 .jpg
+    // pick out all png and jpg image.选出所有的 .png 或者 .jpg
     [self getAllImageFile];
     
-    // pick out all source files that need to be retrieved.选出所有的需要搜索的文件
+    // pick out all source files that need to be retrieved.选出所有的需要检索的文件
     [self getAllMFile];
     
     // the most important step, filter all unused image.检查没有用过的图片
@@ -78,9 +78,9 @@ double MachTimeToSecs(uint64_t time)
         // clear temporary file.删除临时文件
         [strongSelf.manager removeItemAtPath:self.mFilePath error:nil];
         
-        if (strongSelf.saveUnusedImage) {
-            // copy unused images to another path before removing them.将不用的图片拷贝到另一个目录
-            [strongSelf saveUnusedImageFile];
+        if (strongSelf.backupUnusedImage) {
+            // backup unused images to another path before removing them.备份不用的图片到另一个目录
+            [strongSelf backupUnusedImageFile];
         }
         
         if (strongSelf.removeUnusedImage) {
@@ -130,7 +130,7 @@ double MachTimeToSecs(uint64_t time)
 
 - (void)getAllMFile
 {
-    // create new file.we will store all string between "" in this file.新建文件
+    // create new file.We will store all string between "" in this file.新建文件
     self.mFilePath = [[self.rootDirectoryPath stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"tmpMFile.txt"];
     [self.manager removeItemAtPath:self.mFilePath error:nil];
     [self.manager createFileAtPath:self.mFilePath contents:nil attributes:nil];
@@ -184,7 +184,7 @@ double MachTimeToSecs(uint64_t time)
                         NSString * tmpStr = [contentOfOldFile substringWithRange:[match rangeAtIndex:1]];
                         // ship .h 过滤.h
                         if (![tmpStr hasSuffix:@".h"]) {
-                            [contentOfNewFile appendString:[tmpStr stringByAppendingString:@" "]];
+                            [contentOfNewFile appendString:tmpStr];
                         }
                     }
                     // 异步串行写文件
@@ -260,7 +260,7 @@ double MachTimeToSecs(uint64_t time)
     NSLog(@"%lu", (unsigned long)self.imageNeedRemovedArray.count);
 }
 
-- (void)saveUnusedImageFile
+- (void)backupUnusedImageFile
 {
     NSString * anotherImageFilePath = [[self.rootDirectoryPath stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Unused File"];
     [self.manager removeItemAtPath:anotherImageFilePath error:nil];

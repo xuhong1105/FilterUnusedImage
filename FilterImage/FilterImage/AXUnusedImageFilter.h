@@ -1,5 +1,5 @@
 //
-//  AXFilterImage.h
+//  AXUnusedImageFilter.h
 //  FilterImage
 //
 //  Created by Allen on 15/12/9.
@@ -10,12 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AXFilterImage : NSObject
+@interface AXUnusedImageFilter : NSObject
 
 @property (nonatomic,copy,readonly) NSString *path;
 @property (nonatomic,assign) BOOL removeUnusedImage;/**< whether remove unused image from project, default is NO */
 @property (nonatomic,assign) BOOL cleanPbxproj;/**< whether clean project.pbxproj, default is NO */
-@property (nonatomic,assign) BOOL saveUnusedImage;/**< whether save unusedImage at another path, default is NO */
+@property (nonatomic,assign) BOOL backupUnusedImage;/**< whether backup unusedImage to another path, default is NO */
 @property (nonatomic,strong) NSArray *fileExtensions;/**< default is @[@"m", @"xib", @"cpp", @"storyboard", @"mm", @"swift", @"plist", @"json"] */
 
 
