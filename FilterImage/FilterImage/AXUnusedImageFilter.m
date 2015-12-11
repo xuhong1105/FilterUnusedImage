@@ -59,7 +59,7 @@ double MachTimeToSecs(uint64_t time)
     // pick out all png and jpg image.选出所有的 .png 或者 .jpg
     [self getAllImageFile];
     
-    // pick out all source files that need to be retrieved.选出所有的需要检索的文件
+    // pick out all source files which need to be retrieved.选出所有的需要检索的文件
     [self getAllMFile];
     
     // the most important step, filter all unused image.检查没有用过的图片
