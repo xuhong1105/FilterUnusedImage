@@ -262,7 +262,7 @@ double MachTimeToSecs(uint64_t time)
 
 - (void)backupUnusedImageFile
 {
-    NSString * anotherImageFilePath = [[self.rootDirectoryPath stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Unused File"];
+    NSString * anotherImageFilePath = [[self.rootDirectoryPath stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Unused Image"];
     [self.manager removeItemAtPath:anotherImageFilePath error:nil];
     [self.manager createDirectoryAtPath:anotherImageFilePath withIntermediateDirectories:NO attributes:nil error:nil];
     
